@@ -8,20 +8,31 @@ const exitbutton = document.querySelector(".exit-btn");
 const menubuttons = document.querySelector(".menu-btns");
 const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8]
 let ch;
+let gameActive = false
 
 buttons.forEach(button => (button.addEventListener("click", () => {
+    gameActive = true;
     ch = button.textContent;
     scoreboard.style.visibility = "visible";
     container.style.display = "grid";
     welcome.style.display = "none";
     exitbutton.style.display = "inline-block";
+    userMove()
   })))
 
+const getPosition = (index) => {
+    return index
+}
+
 const userMove = () => {
-    cells.forEach(cell => (cell.addEventListener("click", () => {
-    if (!numbers.includes(cell.textContent)) {
-        cell.textContent = ch;
-    }
+    cells.forEach((cell, index) => (cell.addEventListener("click", () => {
+        // gameActive = true;
+        if (!numbers.includes(cell.textContent) && gameActive == true) {
+            cell.textContent = ch;
+        }
+        // getPosition(index);
+        console.log("T", index);
+        computerMove(index);
 })))
 }
 
@@ -67,11 +78,24 @@ function generateInitialSix(playerMove) {
     return initialSix;
   }
   
-userMove()
 
-const computerMove = () => {
-    let i 
+const computerMove = (a) => {
+    if (gameActive == true) {
+        // let a = getPosition();
+        let i = generateInitialSix(a);
+        let random = i.length == 6 ? Math.floor(Math.random() * 7) : Math.floor(Math.random() * 5)
+        console.log(random);
+        console.log(i);
+        console.log(i[random]);
+        if (ch == "O") {
+        cells[i[random]].textContent = "X"
+        } else {
+        cells[i[random]].textContent = "O"
+        }
+    }
 }
+
+// computerMove();
 
     // for (let i = 0; i < bgColor.length; i++) {
     //     setTimeout(() => {

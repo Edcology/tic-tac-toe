@@ -65,7 +65,6 @@ function generateInitialSix(playerMove) {
   }
   
 
-userMove();
 
 const computerMove = () => {
     let i 

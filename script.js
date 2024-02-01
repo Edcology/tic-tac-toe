@@ -4,15 +4,18 @@ const cells = document.querySelectorAll(".cell");
 const buttons = document.querySelectorAll(".btn");
 const welcome = document.querySelector("#welcome");
 const scoreboard = document.querySelector(".score-board");
+const exitbutton = document.querySelector(".exit-btn");
+const menubuttons = document.querySelector(".menu-btns");
 let ch;
 
 buttons.forEach(button => (button.addEventListener("click", () => {
     ch = button.textContent;
-    scoreboard.style.display = "flex";
+    scoreboard.style.visibility = "visible";
     container.style.display = "grid";
     welcome.style.display = "none";
+    exitbutton.style.display = "inherit";
+    menubuttons.style.GridTemplateColumns = "1fr 1fr";
 })))
- 
 
 const userMove = () => {
     cells.forEach(cell => (cell.addEventListener("click", () => {

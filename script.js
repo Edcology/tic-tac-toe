@@ -52,7 +52,7 @@ function generateInitialSix(playerMove) {
         initialSix.push(3, 0, 7, 8, 2, 4);
         break;
       case 7:
-        initialSix.push(6, 8, 1, 4, 3, 5);
+        initialSix.push(6, 8, 1, 4,);
         break;
       case 8:
         initialSix.push(4, 2, 7, 6, 0, 5);
@@ -68,7 +68,7 @@ function generateInitialSix(playerMove) {
 userMove();
 
 const computerMove = () => {
-
+    let i 
 }
 
     // for (let i = 0; i < bgColor.length; i++) {

@@ -4,6 +4,8 @@ const cells = document.querySelectorAll(".cell");
 const buttons = document.querySelectorAll(".btn");
 const welcome = document.querySelector("#welcome");
 const header = document.querySelector("header");
+const p = document.querySelectorAll(".p");
+const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 let ch;
 
 buttons.forEach(button => (button.addEventListener("click", () => {
@@ -15,8 +17,8 @@ buttons.forEach(button => (button.addEventListener("click", () => {
  
 
 const userMove = () => {
-    cells.forEach(cell => (cell.addEventListener("click", () => {
-    if (cell.textContent == "2" || cell.textContent == "") {
+    cells.forEach((cell, index) => (cell.addEventListener("click", () => {
+    if (!numbers.includes(cell.textContent)) {
         cell.textContent = ch;
     }
 })))
@@ -63,13 +65,8 @@ function generateInitialSix(playerMove) {
   
     return initialSix;
   }
-  
 
-userMove();
 
-const computerMove = () => {
-    let i 
-}
 
     // for (let i = 0; i < bgColor.length; i++) {
     //     setTimeout(() => {

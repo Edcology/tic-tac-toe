@@ -10,37 +10,66 @@ body {
     display: grid;
     min-height: 100vh;
     min-width: 100vw;
-    /* justify-content: center; */
-    /* align-items: center; */
+    background-color: rgb(127, 129, 131);
 }
 
 header{
-    display: none;
+    display: flex;
     justify-content: space-between;
     padding: 10px 15px;
 }
 
 .tle{
     width: 200px;
+    color: white;
 }
 
 .info-panel{
     display: grid;
     grid-template-columns: 5fr 1fr;
+    gap: 5px;
 }
 
 .score-board{
-    display: flex;
+    display: none;
     justify-content: space-between;
     align-items: center;
     height: 40px;
-    width: 300px;
+    width: 250px;
     border-radius: 10px;
-    background-color: grey;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.player, .computer{
+    width: 80px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 input[type = "text"]{
+    width: 45px;
+    height: 25px;
+    outline: none;
+    border-radius: 5px
+}
+
+.theme-btn{
+    height: 40px;
     width: 40px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.75s ease-in-out;
+}
+
+.theme-btn:hover{
+    background-color: black;
+    color: white;
+    height: 42px;
+    width: 42px;
 }
 
 #container {
@@ -49,7 +78,7 @@ input[type = "text"]{
     grid-template-rows: 1fr 1fr 1fr;
     width: 50%;
     min-width: 500px;
-    height: 50;
+    height: 400px;
     border-radius: 15px;
     padding: 20px;
     display: none;
@@ -91,7 +120,8 @@ input[type = "text"]{
     padding:  20px 25px 20px;
     border-radius: 12px;
     align-self: center;
-
+    background-color: white;
+    box-shadow: 5px 5px 5px rgba(53, 53, 53, 0.8);
 }
 
 #welcome .txt {
@@ -114,6 +144,7 @@ input[type = "text"]{
     border-radius: 10px;
     border: none;
     transition: all 0.25s ease-in-out;
+    cursor: pointer;
 }
 
 .btn:hover{
@@ -122,4 +153,5 @@ input[type = "text"]{
     width: 130px;
     height: 65px;
     font-size: large;
+    box-shadow: 2px 2px 2px rgba(53, 53, 53, 0.6);
 }

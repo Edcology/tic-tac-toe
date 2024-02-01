@@ -1,2 +1,2 @@
 # tic-tac-toe
-A simple tic-tac-toe game with an intelligent computer
+A simple tic-tac-toe game with an intelligent computer player 

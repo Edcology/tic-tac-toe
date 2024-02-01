@@ -60,7 +60,7 @@ input[type = "text"]{
 }
 
 .menu-btns{
-    display: grid;
+    display: flex;
     justify-content: space-between;
     width: 100px;
 }
@@ -74,9 +74,7 @@ input[type = "text"]{
     transition: all 0.75s ease-in-out;
 }
 
-.theme-btn{
-    
-}
+
 
 .exit-btn{
     display: none;

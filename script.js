@@ -6,6 +6,7 @@ const welcome = document.querySelector("#welcome");
 const scoreboard = document.querySelector(".score-board");
 const exitbutton = document.querySelector(".exit-btn");
 const menubuttons = document.querySelector(".menu-btns");
+const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8]
 let ch;
 
 buttons.forEach(button => (button.addEventListener("click", () => {
@@ -13,13 +14,12 @@ buttons.forEach(button => (button.addEventListener("click", () => {
     scoreboard.style.visibility = "visible";
     container.style.display = "grid";
     welcome.style.display = "none";
-    exitbutton.style.display = "inherit";
-    menubuttons.style.GridTemplateColumns = "1fr 1fr";
-})))
+    exitbutton.style.display = "inline-block";
+  })))
 
 const userMove = () => {
     cells.forEach(cell => (cell.addEventListener("click", () => {
-    if (cell.textContent == "2" || cell.textContent == "") {
+    if (!numbers.includes(cell.textContent)) {
         cell.textContent = ch;
     }
 })))
@@ -67,7 +67,7 @@ function generateInitialSix(playerMove) {
     return initialSix;
   }
   
-
+userMove()
 
 const computerMove = () => {
     let i 

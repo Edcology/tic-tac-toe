@@ -8,7 +8,10 @@ const exitbutton = document.querySelector(".exit-btn");
 const menubuttons = document.querySelector(".menu-btns");
 const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8]
 let ch;
-let gameActive = false
+let gameActive = false;
+let computerFirstMove = 0;
+let b;
+let usedPosition = [];
 
 buttons.forEach(button => (button.addEventListener("click", () => {
     gameActive = true;
@@ -17,7 +20,8 @@ buttons.forEach(button => (button.addEventListener("click", () => {
     container.style.display = "grid";
     welcome.style.display = "none";
     exitbutton.style.display = "inline-block";
-    userMove()
+    userMove();
+    computerFirstMove += 1;
   })))
 
 const getPosition = (index) => {
@@ -31,7 +35,8 @@ const userMove = () => {
             cell.textContent = ch;
         }
         // getPosition(index);
-        console.log("T", index);
+        console.log("What user chose", index);
+        usedPosition.push(index);
         computerMove(index);
 })))
 }
@@ -80,19 +85,52 @@ function generateInitialSix(playerMove) {
   
 
 const computerMove = (a) => {
-    if (gameActive == true) {
+  // console.log(computerFirstMove);
+    if (gameActive == true && computerFirstMove == 1) {
         // let a = getPosition();
         let i = generateInitialSix(a);
-        let random = i.length == 6 ? Math.floor(Math.random() * 7) : Math.floor(Math.random() * 5)
-        console.log(random);
-        console.log(i);
-        console.log(i[random]);
-        if (ch == "O") {
-        cells[i[random]].textContent = "X"
-        } else {
-        cells[i[random]].textContent = "O"
+        console.log("Unaltered array", i);
+        i = i.filter(item => item !== i[a])
+        let random = Math.floor(Math.random() * i.length);
+        console.log("computer move", random);
+        console.log("USer position", usedPosition);
+        while (usedPosition.includes(random)) {
+          random = Math.floor(Math.random() * i.length);
         }
+        console.log("Computer move second", random);
+        console.log("Selected array", i);
+        console.log("index picked by the computer", i[random]);
+        if (ch == "O" && !cells[i[random]].textContent) {
+          cells[i[random]].textContent = "X";
+          usedPosition.push(i[random])  
+          b = i.filter(item => item !== i[random]);
+        } else if (ch == "X" && !cells[i[random]].textContent) {
+          cells[i[random]].textContent = "O";
+          usedPosition.push(i[random])  
+          b = i.filter(item => item !== i[random]);
+        }
+    } else if (gameActive == true && computerFirstMove > 1) {
+      let random = Math.floor(Math.random() * b.length);
+      b = b.filter(item => item !== b[a])
+      console.log("New array", b);
+      console.log("2 computer move", random);
+      console.log("USer position", usedPosition);
+      while (usedPosition.includes(random)) {
+        random = Math.floor(Math.random() * b.length);
+      }
+      console.log("2 Computer move second", random);
+      if (ch == "O" && !cells[b[random]].textContent) {
+        cells[b[random]].textContent = "X";
+        usedPosition.push(i[random])  
+        b = b.filter(item => item !== b[random]);
+      } else if (ch == "X" && !cells[b[random]].textContent) {
+        cells[b[random]].textContent = "O";
+        usedPosition.push(i[random])  
+        b = b.filter(item => item !== b[random]);
+      }
     }
+    computerFirstMove += 1;
+    
 }
 
 // computerMove();

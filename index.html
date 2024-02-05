@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/df24ad8fcc.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="body">
     <header>
         <div class="tle">
             <h1>
@@ -42,8 +42,8 @@
             <p>Choose an emblem to start the game</p>
         </div>
         <div class="btn-container">
-            <button class="btn">X</button>
-            <button class="btn">O</button>
+            <button class="btn"><p>X</p></button>
+            <button class="btn"><p>O</p></button>
         </div>
     </div>
     <div id="container">
@@ -57,8 +57,15 @@
         <div class="cell bottom"><p class="p" style="visibility: hidden;"></p></div>
         <div class="cell bottom right"><p class="p" style="visibility: hidden;"></p></div>
     </div>
-
-
+    <div class="shadow">
+        <div id="exit-dialogue">
+            <p style="font-size: medium;"> Do you want to exit the game? </p>
+            <div style="display: flex; justify-content: space-between;">
+            <button class="exbtn">Exit</button>
+            <button class="cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

@@ -5,7 +5,17 @@ const buttons = document.querySelectorAll(".btn");
 const welcome = document.querySelector("#welcome");
 const scoreboard = document.querySelector(".score-board");
 const exitbutton = document.querySelector(".exit-btn");
-const menubuttons = document.querySelector(".menu-btns");
+const theme = document.querySelector(".theme-btn");
+const exbutton = document.querySelector(".exbtn");
+const cancel = document.querySelector(".cancel-btn");
+const shadow = document.querySelector(".shadow");
+const exdiag = document.querySelector("#exit-dialogue");
+const body = document.querySelector("body");
+const title = document.querySelector(".tle");
+const tops = document.querySelectorAll(".top");
+const bottom = document.querySelectorAll(".bottom");
+const left = document.querySelectorAll(".left");
+const right = document.querySelectorAll(".right");
 const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8]
 let ch;
 let gameActive = false;
@@ -20,11 +30,102 @@ buttons.forEach(button => (button.addEventListener("click", () => {
     container.style.display = "grid";
     welcome.style.display = "none";
     exitbutton.style.display = "inline-block";
+    theme.style.right = "unset";
+    theme.style.position = "static";
     userMove();
     computerFirstMove += 1;
   })))
 
-const getPosition = (index) => {
+ exitbutton.addEventListener("click" , () =>{
+  shadow.style.display = "flex";
+  
+ }) 
+
+ exbutton.addEventListener("click" , () =>{
+  shadow.style.display = "none";
+  scoreboard.style.visibility = "hidden";
+  container.style.display = "none";
+  welcome.style.display = "grid";
+  exitbutton.style.display = "none";
+  theme.style.right = "10px";
+  theme.style.position = "absolute";
+ })
+
+ cancel.addEventListener("click" , () => {
+  shadow.style.display = "none"
+  scoreboard.style.visibility = "visible";
+  container.style.display = "grid";
+  welcome.style.display = "none";
+  exitbutton.style.display = "inline-block";
+ })
+
+
+theme.addEventListener("click" , () =>{
+  mode = document.querySelector("body").style.backgroundColor;
+  if(mode != "black"){
+    buttons.forEach((btn, index) =>{
+      buttons[index].style.backgroundColor = "rgb(50, 50, 50)";
+      buttons[index].style.Color = "white";
+    })
+    container.style.backgroundColor = "black";
+    container.style.color = "white";
+    welcome.style.backgroundColor = "rgb(20, 20, 20)";
+    welcome.style.boxShadow = "unset"
+    welcome.style.color = "white";
+    body.style.backgroundColor = "black";
+    body.style.color = "white";
+    title.style.color = "white";
+    scoreboard.style.backgroundColor = "rgb(20,20,20)";
+    scoreboard.style.color = "white";
+    theme.style.backgroundColor = "rgb(20,20,20)";
+    theme.style.color = "white";
+    exitbutton.style.backgroundColor = "rgb(20, 20, 20)";
+    exitbutton.style.color = "white";
+    exdiag.style.backgroundColor = "rgb(20, 20, 20)";
+    exdiag.style.color = "white";
+    exdiag.style.boxShadow = "unset";
+    cells.forEach( (cell, index) => {
+      tops[index].style.borderBottom = "1px solid white";
+      bottom[index].style.borderTop = "1px solid white";
+      left[index].style.borderRight = "1px solid white";
+      right[index].style.borderLeft = "1px solid white";
+    } )
+
+
+  }
+
+  else if ( mode != "white"){
+    buttons.forEach((btn, index) =>{
+      buttons[index].style.backgroundColor = "grey";
+      buttons[index].style.Color = "black";
+    })
+    container.style.backgroundColor = "white";
+    container.style.color = "black";
+    welcome.style.backgroundColor = "white";
+    welcome.style.color = "black";
+    body.style.backgroundColor = "white";
+    body.style.color = "black";
+    title.style.color = "black";
+    scoreboard.style.backgroundColor = "grey";
+    scoreboard.style.color = "black";
+    theme.style.backgroundColor = "grey";
+    theme.style.color = "white";
+    exitbutton.style.backgroundColor = "grey";
+    exitbutton.style.color = "white";
+    exdiag.style.backgroundColor = "white";
+    exdiag.style.color = "black";
+    cells.forEach( (cell, index) => {
+      tops[index].style.borderBottom = "1px solid black";
+      bottom[[index]].style.borderTop = "1px solid black";
+      left[index].style.borderRight = "1px solid black";
+      right[index].style.borderLeft = "1px solid black";
+    } )
+  }
+
+})
+
+
+const getPosition = (index) => {43
     return index
 }
 
